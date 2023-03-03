@@ -1,0 +1,32 @@
+﻿@page "/"
+
+<PageTitle>Мои курсы - LimaMajor</PageTitle>
+
+    <AuthorizeView>
+        <Authorized>
+    <h1>Мои курсы</h1>
+    <h1>Обучающие программы в Айтилогии</h1>
+    <p>Изучите подробнее информацию о наших курсах, посмотрите пробные видеоуроки, и скоро вы станете студентом Айтилогии!</p>
+    <div class="row g-5">
+      <div class="col-md-6">
+        <img src="images/Frontend.png" height="70" width="80" />
+        <h2>Frontend-разработчик</h2>
+        <p>Вы с нуля изучите все необходимые технологии и станете востребованным frontend-разработчиком.</p>
+        <form method="post">
+            <button asp-controller="CourseRegistration" asp-action="Frontend" class="btn btn-primary btn-lg px-4 gap-3">Записаться</button>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <img src="images/UXUI.png" height="70" width="80" />
+        <h2>UX/UI-дизайнер</h2>
+        <p>Вы научитесь разрабатывать современные сайты и интерфейсы, удобные для пользователей и решающие задачи бизнеса.</p>
+        <form method="post">
+            <button asp-controller="CourseRegistration" asp-action="UXUI" class="btn btn-primary btn-lg px-4 gap-3">Записаться</button>
+        </form>
+      </div>
+    </div></Authorized>
+        <NotAuthorized>
+            <p class="col-md-8">Вы еще не начали обучаться в Айтилогии 😔 <a href="/Identity/Account/Register">Зарегестрируйтесь</a> или <a href="Identity/Account/Login">войдите</a> и подайте заявку на интересующий курс!</p>
+        </NotAuthorized>
+    </AuthorizeView>
