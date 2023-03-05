@@ -65,6 +65,7 @@ namespace LimaMajor.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
+            [Display(Name = "Имя пользователя")]
             public string UserName { get; set; }
 
             /// <summary>
@@ -72,6 +73,7 @@ namespace LimaMajor.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
+            [Display(Name = "Пароль")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
@@ -79,7 +81,7 @@ namespace LimaMajor.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Запомнить меня?")]
             public bool RememberMe { get; set; }
         }
 
