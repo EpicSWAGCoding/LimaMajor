@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\vs_project\\Courses\\Courses\\wwwroot\\img\\imagetest.png",
+      "PackagePath": "staticwebassets\\img\\imagetest.png"
+    },
+    {
       "Id": "D:\\vs_project\\Courses\\Courses\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
@@ -243,6 +247,10 @@
     {
       "Id": "D:\\vs_project\\Courses\\Courses\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\vs_project\\Courses\\Courses\\wwwroot\\video\\VideoCats.mp4",
+      "PackagePath": "staticwebassets\\video\\VideoCats.mp4"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Courses.Microsoft.AspNetCore.StaticWebAssets.props",

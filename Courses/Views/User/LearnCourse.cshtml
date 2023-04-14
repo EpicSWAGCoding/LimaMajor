@@ -1,0 +1,70 @@
+﻿@{
+    Course course = (Course)ViewData["course"];
+    List<Lesson> lessons = (List<Lesson>)ViewData["lesson"];
+    List<Image> images = (List<Image>)ViewData["image"];
+    List<Video> videos = (List<Video>)ViewData["video"];
+    List<Content> contents= (List<Content>)ViewData["content"];
+    int count = 0;
+}
+
+<h2>Изучение курса @course.Title</h2>
+
+<div class="accordion" id="accordionExample">
+    @foreach (var lesson in lessons)
+    {
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acc_@lesson.Id" aria-expanded="true" aria-controls="acc_@lesson.Id">
+                    @lesson.Title
+                </button>
+            </h2>
+            <div id="acc_@lesson.Id" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div id="carouselExample_@lesson.Id" class="carousel slide">
+                        <div class="carousel-inner">
+                            @foreach (var image in images.Where(a => a.LessonId == lesson.Id).ToList())
+                            {
+                            if(count==0)
+                            {
+                            <div class="carousel-item active">
+                                <img src="@image.FileName" class="d-block w-100" alt="">
+                                </div>
+                            } else
+                            {
+                            <div class="carousel-item">
+                                        <img src="@image.FileName" class="d-block w-100" alt="">
+                                </div>
+                            }
+                            count++;
+                        }
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample_@lesson.Id" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample_@lesson.Id" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <br>
+                    @foreach (var content in contents.Where(a => a.LessonId == lesson.Id).ToList())
+                    {
+                        <p>@content.ContentText</p>
+                        count = 0;
+                    }
+
+                    <div>
+                        <h4>Видео материал к уроку</h4>
+                        @foreach (var video in videos.Where(a => a.LessonId == lesson.Id).ToList())
+                        {
+                        <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="@video.FileName" allowfullscreen></iframe>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

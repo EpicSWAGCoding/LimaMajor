@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qVxUvRxHEd/m5nfpsM60j8BBi5aVwZxieRPKrGvEUHo=",
+  "Hash": "X9P8Hen7T0EL69HWuirqtxDwBZjpsUVaQwUJlVi0X9A=",
   "Source": "Courses",
   "BasePath": "_content/Courses",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\vs_project\\Courses\\Courses\\wwwroot\\img\\imagetest.png",
+      "SourceId": "Courses",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\vs_project\\Courses\\Courses\\wwwroot\\",
+      "BasePath": "_content/Courses",
+      "RelativePath": "img/imagetest.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\imagetest.png"
     },
     {
       "Identity": "D:\\vs_project\\Courses\\Courses\\wwwroot\\js\\site.js",
@@ -1069,6 +1086,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\vs_project\\Courses\\Courses\\wwwroot\\video\\VideoCats.mp4",
+      "SourceId": "Courses",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\vs_project\\Courses\\Courses\\wwwroot\\",
+      "BasePath": "_content/Courses",
+      "RelativePath": "video/VideoCats.mp4",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\video\\VideoCats.mp4"
     }
   ]
 }

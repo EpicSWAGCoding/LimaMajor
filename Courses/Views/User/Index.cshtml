@@ -2,6 +2,23 @@
     List<Course> courses = (List<Course>)ViewData["courses"];
 }
 
-<div>
+<h2>Мои курсы</h2>
 
+<div class="accordion" id="accordionExample">
+    @foreach(var course in courses)
+    {
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acc_@course.Id" aria-expanded="true" aria-controls="acc_@course.Id">
+                @course.Title
+            </button>
+        </h2>
+        <div id="acc_@course.Id" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                 <p>@course.Description</p>
+                 <a asp-action="LearnCourse" asp-route-id="@course.Id" class="btn btn-info">Перейти к изучению</a>
+            </div>
+        </div>
+    </div>
+    }
 </div>

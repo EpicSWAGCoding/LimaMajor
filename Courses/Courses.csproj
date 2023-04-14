@@ -23,7 +23,9 @@
 
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="DAO\" />
+    <Folder Include="Service\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Manager\" />
   </ItemGroup>
 
 </Project>
