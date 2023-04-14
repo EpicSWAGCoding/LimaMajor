@@ -3,6 +3,7 @@ using Courses.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Courses.Migrations
 {
     [DbContext(typeof(CoursesDbContext))]
-    partial class CoursesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230413191541_AddImageVideoContentTables")]
+    partial class AddImageVideoContentTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,28 +44,6 @@ namespace Courses.Migrations
                     b.ToTable("admins");
                 });
 
-            modelBuilder.Entity("Courses.Models.Content", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("ContentText")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LessonId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LessonId");
-
-                    b.ToTable("contents");
-                });
-
             modelBuilder.Entity("Courses.Models.Course", b =>
                 {
                     b.Property<int>("Id")
@@ -91,28 +71,6 @@ namespace Courses.Migrations
                     b.HasIndex("ManagerId");
 
                     b.ToTable("courses");
-                });
-
-            modelBuilder.Entity("Courses.Models.Image", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("FileName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LessonId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LessonId");
-
-                    b.ToTable("images");
                 });
 
             modelBuilder.Entity("Courses.Models.Lesson", b =>
@@ -206,51 +164,6 @@ namespace Courses.Migrations
                     b.ToTable("users");
                 });
 
-            modelBuilder.Entity("Courses.Models.UserCourse", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("userCourses");
-                });
-
-            modelBuilder.Entity("Courses.Models.Video", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("FileName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LessonId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LessonId");
-
-                    b.ToTable("videos");
-                });
-
             modelBuilder.Entity("Courses.Models.Wallet", b =>
                 {
                     b.Property<int>("Id")
@@ -276,17 +189,6 @@ namespace Courses.Migrations
                     b.ToTable("wallets");
                 });
 
-            modelBuilder.Entity("Courses.Models.Content", b =>
-                {
-                    b.HasOne("Courses.Models.Lesson", "lesson")
-                        .WithMany()
-                        .HasForeignKey("LessonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("lesson");
-                });
-
             modelBuilder.Entity("Courses.Models.Course", b =>
                 {
                     b.HasOne("Courses.Models.Manager", "manager")
@@ -298,17 +200,6 @@ namespace Courses.Migrations
                     b.Navigation("manager");
                 });
 
-            modelBuilder.Entity("Courses.Models.Image", b =>
-                {
-                    b.HasOne("Courses.Models.Lesson", "lesson")
-                        .WithMany()
-                        .HasForeignKey("LessonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("lesson");
-                });
-
             modelBuilder.Entity("Courses.Models.Lesson", b =>
                 {
                     b.HasOne("Courses.Models.Course", "course")
@@ -318,36 +209,6 @@ namespace Courses.Migrations
                         .IsRequired();
 
                     b.Navigation("course");
-                });
-
-            modelBuilder.Entity("Courses.Models.UserCourse", b =>
-                {
-                    b.HasOne("Courses.Models.Course", "course")
-                        .WithMany()
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Courses.Models.User", "user")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("course");
-
-                    b.Navigation("user");
-                });
-
-            modelBuilder.Entity("Courses.Models.Video", b =>
-                {
-                    b.HasOne("Courses.Models.Lesson", "lesson")
-                        .WithMany()
-                        .HasForeignKey("LessonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("lesson");
                 });
 
             modelBuilder.Entity("Courses.Models.Wallet", b =>

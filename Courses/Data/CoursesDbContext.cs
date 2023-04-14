@@ -14,5 +14,9 @@ namespace Courses.Data
         public DbSet<Manager> managers { get; set; }
         public DbSet<User> users { get;set; }
         public DbSet<Wallet> wallets { get; set; }
+        public DbSet<UserCourse> userCourses{ get; set; }
+        public DbSet<Image> images{ get; set; }
+        public DbSet<Video> videos { get; set; }
+        public DbSet<Content> contents{ get; set; }
     }
 }
