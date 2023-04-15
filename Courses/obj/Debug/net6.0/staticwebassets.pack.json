@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets\\img\\imagetest.png"
     },
     {
+      "Id": "D:\\vs_project\\Courses\\Courses\\wwwroot\\img\\Снимокэкрана2023-03-09205640.png",
+      "PackagePath": "staticwebassets\\img\\Снимокэкрана2023-03-09205640.png"
+    },
+    {
+      "Id": "D:\\vs_project\\Courses\\Courses\\wwwroot\\img\\Снимокэкрана_20230121_202350.png",
+      "PackagePath": "staticwebassets\\img\\Снимокэкрана_20230121_202350.png"
+    },
+    {
       "Id": "D:\\vs_project\\Courses\\Courses\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
@@ -251,6 +259,14 @@
     {
       "Id": "D:\\vs_project\\Courses\\Courses\\wwwroot\\video\\VideoCats.mp4",
       "PackagePath": "staticwebassets\\video\\VideoCats.mp4"
+    },
+    {
+      "Id": "D:\\vs_project\\Courses\\Courses\\wwwroot\\video\\Снимокэкрана2023-03-09205509.png",
+      "PackagePath": "staticwebassets\\video\\Снимокэкрана2023-03-09205509.png"
+    },
+    {
+      "Id": "D:\\vs_project\\Courses\\Courses\\wwwroot\\video\\Снимокэкрана2023-03-09205803.png",
+      "PackagePath": "staticwebassets\\video\\Снимокэкрана2023-03-09205803.png"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Courses.Microsoft.AspNetCore.StaticWebAssets.props",

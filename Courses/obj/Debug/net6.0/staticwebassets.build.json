@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "X9P8Hen7T0EL69HWuirqtxDwBZjpsUVaQwUJlVi0X9A=",
+  "Hash": "6BaR2W64ulz/uhCFhNyzfFadRzdpresXpy8hx/VjnfI=",
   "Source": "Courses",
   "BasePath": "_content/Courses",
   "Mode": "Default",
@@ -100,6 +100,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\imagetest.png"
+    },
+    {
+      "Identity": "D:\\vs_project\\Courses\\Courses\\wwwroot\\img\\Снимокэкрана_20230121_202350.png",
+      "SourceId": "Courses",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\vs_project\\Courses\\Courses\\wwwroot\\",
+      "BasePath": "_content/Courses",
+      "RelativePath": "img/Снимокэкрана_20230121_202350.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Снимокэкрана_20230121_202350.png"
+    },
+    {
+      "Identity": "D:\\vs_project\\Courses\\Courses\\wwwroot\\img\\Снимокэкрана2023-03-09205640.png",
+      "SourceId": "Courses",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\vs_project\\Courses\\Courses\\wwwroot\\",
+      "BasePath": "_content/Courses",
+      "RelativePath": "img/Снимокэкрана2023-03-09205640.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Снимокэкрана2023-03-09205640.png"
     },
     {
       "Identity": "D:\\vs_project\\Courses\\Courses\\wwwroot\\js\\site.js",
@@ -1103,6 +1137,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\video\\VideoCats.mp4"
+    },
+    {
+      "Identity": "D:\\vs_project\\Courses\\Courses\\wwwroot\\video\\Снимокэкрана2023-03-09205509.png",
+      "SourceId": "Courses",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\vs_project\\Courses\\Courses\\wwwroot\\",
+      "BasePath": "_content/Courses",
+      "RelativePath": "video/Снимокэкрана2023-03-09205509.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\video\\Снимокэкрана2023-03-09205509.png"
+    },
+    {
+      "Identity": "D:\\vs_project\\Courses\\Courses\\wwwroot\\video\\Снимокэкрана2023-03-09205803.png",
+      "SourceId": "Courses",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\vs_project\\Courses\\Courses\\wwwroot\\",
+      "BasePath": "_content/Courses",
+      "RelativePath": "video/Снимокэкрана2023-03-09205803.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\video\\Снимокэкрана2023-03-09205803.png"
     }
   ]
 }

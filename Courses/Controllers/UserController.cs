@@ -27,42 +27,11 @@ namespace Courses.Controllers
 
         public IActionResult LearnCourse(int id)
         { //изучать
-           id = 2;
            Course courses = _context.courses.Where(a=>a.Id==id).FirstOrDefault(); //by id
            List<Lesson> lessons = _context.lessons.Where(a => a.CourseId == id).ToList();
-/*           List<Image> images = new List<Image>();
-           List<Video> videos= new List<Video>();
-           List<Content> contents= new List<Content>();*/
             List<Image> images = _context.images.ToList();
             List<Video> videos = _context.videos.ToList();
             List<Content> contents = _context.contents.ToList();
-            /*           foreach (var lesson in lessons)
-                       {
-                            if(_context.images.Any(a=>a.LessonId==lesson.Id))
-                            {
-                                List<int> imgIdList = _context.images.Where(a => a.LessonId == lesson.Id).Select(a=>a.Id).ToList();
-                                foreach(var img in imgIdList)
-                                {
-                                    images.Add(_context.images.Where(a => a.Id == img).FirstOrDefault());
-                                }
-                            }
-                            if (_context.videos.Any(a => a.LessonId == lesson.Id))
-                            {
-                                List<int> videoIdList = _context.videos.Where(a => a.LessonId == lesson.Id).Select(a => a.Id).ToList();
-                                foreach (var video in videoIdList)
-                                {
-                                    videos.Add(_context.videos.Where(a => a.Id == video).FirstOrDefault());
-                                }
-                            }
-                            if (_context.contents.Any(a => a.LessonId == lesson.Id))
-                            {
-                                List<int> contentIdList = _context.contents.Where(a => a.LessonId == lesson.Id).Select(a => a.Id).ToList();
-                                foreach (var content in contentIdList)
-                                {
-                                    contents.Add(_context.contents.Where(a => a.Id == content).FirstOrDefault());
-                                }
-                            }
-                       }*/
             ViewData["course"] = courses;
             ViewData["lesson"] = lessons;
             ViewData["image"] = images;

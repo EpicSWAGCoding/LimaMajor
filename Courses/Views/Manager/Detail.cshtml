@@ -1,0 +1,141 @@
+﻿@{
+    Course course = (Course)ViewData["course"];
+    List<Lesson> lessons = (List<Lesson>)ViewData["lesson"];
+    List<Image> images = (List<Image>)ViewData["image"];
+    List<Video> videos = (List<Video>)ViewData["video"];
+    List<Content> contents = (List<Content>)ViewData["content"];
+    int count = 0;
+}
+
+<h2>Редактирование курса @course.Title</h2>
+
+<button class="btn btn-primary mb-3" type="button" data-bs-toggle="modal" data-bs-target="#addLesson">Добавить урок</button>
+
+<div class="accordion" id="accordionExample">
+    @foreach (var lesson in lessons)
+    {
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acc_@lesson.Id" aria-expanded="true" aria-controls="acc_@lesson.Id">
+                    @lesson.Title
+                </button>
+            </h2>
+            <div id="acc_@lesson.Id" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <button data-bs-toggle="modal" data-bs-target="#editLesson_@lesson.Id" class="btn btn-info">Редактировать</button>
+                    <a asp-action="LessonDelete" asp-route-id="@lesson.Id" class="btn btn-danger">Удалить</a>
+                    <div id="carouselExample_@lesson.Id" class="carousel slide">
+                        <div class="carousel-inner">
+                            @foreach (var image in images.Where(a => a.LessonId == lesson.Id).ToList())
+                            {
+                                if (count == 0)
+                                {
+                                    <div class="carousel-item active">
+                                        <img src="@image.FileName" class="d-block w-100" alt="">
+@*                                        <img src="~/img/Снимокэкрана2023-03-09204928.png" class="d-block w-100" alt="">*@
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="carousel-item">
+                                        <img src="@image.FileName" class="d-block w-100" alt="">
+                                    </div>
+                                }
+                                count++;
+                            }
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample_@lesson.Id" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample_@lesson.Id" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <br>
+                    @foreach (var content in contents.Where(a => a.LessonId == lesson.Id).ToList())
+                    {
+                        <p>@content.ContentText</p>
+                        count = 0;
+                    }
+
+                    <div>
+                        <h4>Видео материал к уроку</h4>
+                        @foreach (var video in videos.Where(a => a.LessonId == lesson.Id).ToList())
+                        {
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="@video.FileName" allowfullscreen></iframe>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="editLesson_@lesson.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Добавление курса</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form asp-action="EditLesson">
+                        <div class="modal-body">
+                            <label class="form-label">Название урока</label>
+                            <input type="text" class="form-control" name="Title" value="@lesson.Title"/>
+
+                            <label class="form-label">Текст курса</label>
+                            <input type="text" value="" class="form-control" name="Content" />
+
+                            <label class="form-label">Видео</label>
+                            <input type="file" class="form-control mb-2" name="Video" />
+
+                            <label class="form-label">Изображения</label>
+                            <input type="file" class="form-control mb-2" name="Image" />
+
+                            <input type="hidden" name="CourseId" value="@course.Id">
+                            <input type="hidden" name="id" value="@lesson.Id">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Отменить</button>
+                            <button type="submit" class="btn btn-success">Изменить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="modal fade" id="addLesson" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Добавление урока</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="Addlesson" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <label class="form-label">Название урока</label>
+                    <input type="text" class="form-control" name="Title" />
+
+                    <label class="form-label">Текст курса</label>
+                    <input type="text" value="" class="form-control" name="Content" />
+
+                    <label class="form-label">Видео</label>
+                    <input type="file" class="form-control mb-2" name="Video" />
+
+                    <label class="form-label">Изображения</label>
+                    <input type="file" class="form-control mb-2"  name="Image" multiple />
+
+                    <input type="hidden" name="CourseId" value="@course.Id">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Отменить</button>
+                    <button type="submit" class="btn btn-success">Добавить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

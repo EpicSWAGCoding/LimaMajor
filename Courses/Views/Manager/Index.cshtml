@@ -1,0 +1,112 @@
+﻿@{
+    List<Course> courses = (List<Course>)ViewData["course"];
+    List<Course> courseCost = (List<Course>)ViewData["courseCost"];
+    double AllSum = (double)ViewData["allCost"];
+}
+
+<h2>Мои курсы</h2>
+<button class="btn btn-primary mb-3" type="button" data-bs-toggle="modal" data-bs-target="#addCourse">Добавить курс</button>
+<button class="btn btn-warning mb-3" type="button" data-bs-toggle="modal" data-bs-target="#cost">Посмотреть заработок</button>
+<div class="accordion" id="accordionExample">
+    @foreach (var course in courses)
+    {
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acc_@course.Id" aria-expanded="true" aria-controls="acc_@course.Id">
+                    @course.Title
+                </button>
+            </h2>
+            <div id="acc_@course.Id" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                     <p>@course.Description</p>
+                    <a data-bs-toggle="modal" data-bs-target="#editCourse_@course.Id" class="btn btn-info">Редактировать курс</a>
+                    <a asp-action="Detail" asp-route-id="@course.Id" class="btn btn-warning">Редактирование уроков курса</a>  
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="editCourse_@course.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Добавление курса</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form asp-action="EditCourse">
+                        <div class="modal-body">
+                            <label class="form-label">Название курса</label>
+                            <input value="@course.Title" type="text" class="form-control" name="Title" />
+                            <label class="form-label">Описание курса</label>
+                            <input type="text" value="@course.Description" class="form-control" name="Description" />
+                            <label class="form-label">Цена</label>
+                            <input type="number" class="form-control" value="@course.Cost" name="Cost" />
+                            <input type="hidden" name="id" value="@course.Id">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Отменить</button>
+                            <button type="submit" class="btn btn-success">Изменить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="modal fade" id="addCourse" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Добавление курса</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="AddCourse">
+            <div class="modal-body">
+                <label class="form-label">Название курса</label>
+                <input type="text" class="form-control" name="Title" />
+                <label class="form-label">Описание курса</label>
+                <input type="text" class="form-control" name="Description" />
+                <label class="form-label">Цена</label>
+                <input type="number" class="form-control" name="Cost" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Отменить</button>
+                <button type="submit" class="btn btn-success">Добавить</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Продажи</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Общая сумма продаж: @AllSum руб</p>
+                <br />
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Название курса</th>
+                                <th>Выручка(руб)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in courseCost)
+                        {
+                            <tr>
+                                <td>@item.Title</td>
+                                <td>@item.Cost</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
