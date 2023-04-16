@@ -24,6 +24,8 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Service\" />
+    <Folder Include="wwwroot\video\" />
+    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
 </Project>
