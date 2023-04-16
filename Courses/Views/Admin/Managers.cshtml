@@ -1,0 +1,100 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+    List<Manager> managers = (List<Manager>)ViewData["managers"];
+}
+<h3>Список менеджеров</h3>
+<a class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addManager">Добавить</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Почта</th>
+            <th>Удалить</th>
+            <th>Редактировать</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in managers)
+        {
+            <tr>
+                <td>@item.Surname</td>
+                <td>@item.Name</td>
+                <td>@item.FatherName</td>
+                <td>@item.FatherName</td>
+                <td><a asp-action="DeleteManager" asp-route-id="@item.Id" class="btn btn-danger">Удалить</a></td>
+                <td><a class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editManager_@item.Id">Редактировать</a></td>
+            </tr>
+
+    <div class="modal fade" id="editManager_@item.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Добавление урока</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form asp-action="EditManager">
+                    <div class="modal-body">
+                        <label class="form-label">Фамилия</label>
+                        <input type="text" class="form-control" name="Surname" value="@item.Surname"/>
+
+                        <label class="form-label">Имя</label>
+                        <input type="text" class="form-control" name="Name" value="@item.Name"/>
+
+                        <label class="form-label">Отчество</label>
+                        <input type="text" class="form-control" name="FatherName" value="@item.FatherName"/>
+
+                        <label class="form-label">Почта</label>
+                        <input type="text" class="form-control" name="Email" value="@item.Email"/>
+
+                        <label class="form-label">Пароль</label>
+                        <input type="text" class="form-control" name="Password" value="@item.Password"/>
+
+                        <input type="hidden" name="id" value="@item.Id">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Отменить</button>
+                        <button type="submit" class="btn btn-success">Редактировать</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="addManager" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Добавление урока</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="AddManager">
+                <div class="modal-body">
+                    <label class="form-label">Фамилия</label>
+                    <input type="text" class="form-control" name="Surname" />
+
+                    <label class="form-label">Имя</label>
+                    <input type="text" class="form-control" name="Name" />
+
+                    <label class="form-label">Отчество</label>
+                    <input type="text" class="form-control" name="FatherName" />
+
+                    <label class="form-label">Почта</label>
+                    <input type="text" class="form-control" name="Email" />
+
+                    <label class="form-label">Пароль</label>
+                    <input type="text" class="form-control" name="Password" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Отменить</button>
+                    <button type="submit" class="btn btn-success">Добавить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

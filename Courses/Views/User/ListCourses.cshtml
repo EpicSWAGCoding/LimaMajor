@@ -1,0 +1,62 @@
+﻿@{
+    Layout = "_LayoutUser";
+    List<Course> courses = (List<Course>)ViewData["courses"];
+    List<Lesson> lessons= (List<Lesson>)ViewData["lesson"];
+    Wallet wallet = (Wallet)ViewData["wallet"];
+}
+
+<h2>Список курсов</h2>
+
+<div class="accordion" id="accordionExample">
+    @foreach (var course in courses)
+    {
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acc_@course.Id" aria-expanded="true" aria-controls="acc_@course.Id">
+                    @course.Title
+                </button>
+            </h2>
+            <div id="acc_@course.Id" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p>@course.Description</p>
+                   
+                    <h4>Список уроков входящих в курс</h4>
+                    <ul>
+                    @foreach(var item in lessons.Where(a=>a.CourseId==course.Id))
+                    {
+                        <li>@item.Title</li>   
+                    }
+
+                    </ul>
+                    <p>Цена курса: @course.Cost руб</p>
+                    <a data-bs-toggle="modal" data-bs-target="#BuyLesson_@course.Id" class="btn btn-info">Купить курс</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="BuyLesson_@course.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Покупка курса</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form asp-action="Paying">
+                        <div class="modal-body">
+                            <p>Цена курса: @course.Cost</p>
+                            <p>Средства на вашем счёте: @wallet.Money</p>
+                            <label class="form-label">Введите пароль для подтверждения оплаты</label>
+                            <input type="text" class="form-control" name="password" />
+
+                            <input type="hidden" name="CourseId" value="@course.Id">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Отменить</button>
+                            <button type="submit" class="btn btn-success">Купить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>

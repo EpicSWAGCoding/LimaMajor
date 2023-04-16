@@ -1,4 +1,5 @@
 ﻿@{
+    Layout = "_LayoutManager";
     Course course = (Course)ViewData["course"];
     List<Lesson> lessons = (List<Lesson>)ViewData["lesson"];
     List<Image> images = (List<Image>)ViewData["image"];
@@ -32,7 +33,6 @@
                                 {
                                     <div class="carousel-item active">
                                         <img src="@image.FileName" class="d-block w-100" alt="">
-@*                                        <img src="~/img/Снимокэкрана2023-03-09204928.png" class="d-block w-100" alt="">*@
                                     </div>
                                 }
                                 else
@@ -64,8 +64,13 @@
                         <h4>Видео материал к уроку</h4>
                         @foreach (var video in videos.Where(a => a.LessonId == lesson.Id).ToList())
                         {
+@*                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="@video.FileName" allowfullscreen sandbox></iframe>
+                            </div>*@
                             <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="@video.FileName" allowfullscreen></iframe>
+                                <video controls="true" class="embed-responsive-item">
+                                    <source src="@video.FileName" type="video/mp4" />
+                                </video>
                             </div>
                         }
                     </div>
@@ -80,7 +85,7 @@
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Добавление курса</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form asp-action="EditLesson">
+                    <form asp-action="EditLesson" enctype="multipart/form-data">
                         <div class="modal-body">
                             <label class="form-label">Название урока</label>
                             <input type="text" class="form-control" name="Title" value="@lesson.Title"/>
@@ -89,10 +94,10 @@
                             <input type="text" value="" class="form-control" name="Content" />
 
                             <label class="form-label">Видео</label>
-                            <input type="file" class="form-control mb-2" name="Video" />
+                            <input type="file" class="form-control mb-2" name="VideoEdit" />
 
                             <label class="form-label">Изображения</label>
-                            <input type="file" class="form-control mb-2" name="Image" />
+                            <input type="file" class="form-control mb-2" name="ImageEdit" />
 
                             <input type="hidden" name="CourseId" value="@course.Id">
                             <input type="hidden" name="id" value="@lesson.Id">

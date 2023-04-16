@@ -1,9 +1,11 @@
 ﻿@{
+    Layout = "_LayoutUser";
     List<Course> courses = (List<Course>)ViewData["courses"];
+    Wallet wallet = (Wallet)ViewData["wallet"];
 }
 
 <h2>Мои курсы</h2>
-
+<button data-bs-toggle="modal" data-bs-target="#Wallet" class="btn btn-info mb-2">Мой кошелек</button>
 <div class="accordion" id="accordionExample">
     @foreach(var course in courses)
     {
@@ -21,4 +23,31 @@
         </div>
     </div>
     }
+</div>
+
+<div class="modal fade" id="Wallet" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Покупка курса</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="AddMoneyWallet">
+                <div class="modal-body">
+                    <h4>Средства на вашем счёте: @wallet.Money руб</h4>
+
+                    <h5>Пополнение средств</h5>
+                    <label class="form-label">Введите пароль для подтверждения пополнения средств</label>
+                    <input type="text" class="form-control" name="password" />
+
+                    <label class="form-label">Введите сумму для пополнения средств (руб)</label>
+                    <input type="number" class="form-control" name="sum" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Отменить</button>
+                    <button type="submit" class="btn btn-success">Пополнить</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

@@ -3,6 +3,66 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Добро пожаловать на платформу по изучению курсов</h1>
+</div>
+
+<a class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#Login">Войти</a>
+<a class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#Register">Зарегистрироваться</a>
+
+<div class="modal fade" id="Register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Регистрация</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="Register">
+                <div class="modal-body">
+                    <label class="form-label">Фамилия</label>
+                    <input type="text" class="form-control" name="Surname" />
+
+                    <label class="form-label">Имя</label>
+                    <input type="text" class="form-control" name="Name" />
+
+                    <label class="form-label">Отчество</label>
+                    <input type="text" class="form-control" name="FatherName" />
+
+                    <label class="form-label">Почта</label>
+                    <input type="text" class="form-control" name="Email" />
+
+                    <label class="form-label">Пароль</label>
+                    <input type="text" class="form-control" name="Password" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Отменить</button>
+                    <button type="submit" class="btn btn-success">Зарегистрироваться</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Вход</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="Login">
+                <div class="modal-body">
+
+                    <label class="form-label">Почта</label>
+                    <input type="text" class="form-control" name="Email" />
+
+                    <label class="form-label">Пароль</label>
+                    <input type="text" class="form-control" name="Password" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Отменить</button>
+                    <button type="submit" class="btn btn-success">Войти</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

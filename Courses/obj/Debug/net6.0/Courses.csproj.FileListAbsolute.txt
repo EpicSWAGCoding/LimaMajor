@@ -268,3 +268,6 @@ D:\vs_project\Courses\Courses\obj\Debug\net6.0\refint\Courses.dll
 D:\vs_project\Courses\Courses\obj\Debug\net6.0\Courses.pdb
 D:\vs_project\Courses\Courses\obj\Debug\net6.0\Courses.genruntimeconfig.cache
 D:\vs_project\Courses\Courses\obj\Debug\net6.0\ref\Courses.dll
+D:\vs_project\Courses\Courses\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutAdmin.cshtml.rz.scp.css
+D:\vs_project\Courses\Courses\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutManager.cshtml.rz.scp.css
+D:\vs_project\Courses\Courses\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutUser.cshtml.rz.scp.css
