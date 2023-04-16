@@ -2,12 +2,14 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Добро пожаловать на платформу по изучению курсов</h1>
+<div class="text-center justify-content-center">
+    <div class="container position-relative">
+        <img class="img-fluid position-absolute top-0 end-0" src="images/Man1.png" alt="man" />
+        <h1 class="display-4 p-5">Добро пожаловать <br /> на платформу <a class="text-uppercase text-decoration-none fw-bold">Lima.Major</a></h1>
+    </div>
+    <a class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#Login">Войти</a>
+    <a class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#Register">Зарегистрироваться</a>
 </div>
-
-<a class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#Login">Войти</a>
-<a class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#Register">Зарегистрироваться</a>
 
 <div class="modal fade" id="Register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -28,10 +30,10 @@
                     <input type="text" class="form-control" name="FatherName" />
 
                     <label class="form-label">Почта</label>
-                    <input type="text" class="form-control" name="Email" />
+                    <input type="email" class="form-control" name="Email" />
 
                     <label class="form-label">Пароль</label>
-                    <input type="text" class="form-control" name="Password" />
+                    <input type="password" class="form-control" name="Password" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Отменить</button>
@@ -53,10 +55,10 @@
                 <div class="modal-body">
 
                     <label class="form-label">Почта</label>
-                    <input type="text" class="form-control" name="Email" />
+                    <input type="email" class="form-control" name="Email" />
 
                     <label class="form-label">Пароль</label>
-                    <input type="text" class="form-control" name="Password" />
+                    <input type="password" class="form-control" name="Password" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Отменить</button>
